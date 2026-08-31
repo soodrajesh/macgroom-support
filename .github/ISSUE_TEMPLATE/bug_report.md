@@ -5,7 +5,7 @@ title: "[Bug] "
 labels: bug
 ---
 
-**Which app?** (DiskSweeper / Toolbox / MacTools / DupeFinder / SnapText)
+**Which app?** (MacGroom / Toolbox / MacTools / DupeFinder / SnapText)
 
 **macOS version:**
 
