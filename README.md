@@ -18,6 +18,7 @@ This repo doesn't contain MacGroom's app source (see [Is MacGroom's source code 
 - [Safety model](#safety-model)
 - [Permissions](#permissions)
 - [Free vs. MacGroom Pro](#free-vs-macgroom-pro)
+- [Companion CLI](#companion-cli)
 - [Tech stack](#tech-stack)
 - [FAQ](#faq)
 - [The rest of the suite](#the-rest-of-the-suite)
@@ -82,6 +83,19 @@ Caches, Dev Tool Caches, Browser Caches, Downloads, Trash, and App Cleaner are f
 3. **Storage Trend** — day-over-day free space tracking
 
 One license unlocks Pro on every Mac you use, with free updates for as long as the app is maintained — not a subscription.
+
+## Companion CLI
+
+[**macgroom** (soodrajesh/macgroom-cli)](https://github.com/soodrajesh/macgroom-cli) is a free, **open-source** terminal companion — Dev Tool Caches and Dev Project Artifacts (the two categories above), scriptable, no GUI needed:
+
+```bash
+brew install soodrajesh/macgroom/macgroom
+macgroom scan            # list everything found, nothing touched
+macgroom clean            # interactive review, y/n/a/q
+macgroom clean --yes      # trash every safe item, no prompt
+```
+
+Same safety model as the app — Trash-based deletion, AI model weights (Ollama/LM Studio) always flagged for review, never swept up by `--yes` alone. Unlike the GUI app, this CLI's source is fully public — see its own [README](https://github.com/soodrajesh/macgroom-cli#readme) for the full command reference.
 
 ## Tech stack
 
