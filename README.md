@@ -43,11 +43,7 @@ It ships as a native SwiftUI app — universal binary (Apple Silicon + Intel), m
 | --- | --- |
 | ![Dev Tools & Projects section, showing free Dev Tool Caches and Pro-gated Dev Project Artifacts](assets/screenshots/dev-tools-projects.png) | ![Deep Scan, a MacGroom Pro feature, listing large forgotten files and folders](assets/screenshots/deep-scan-pro.png) |
 
-| Storage Trend (Pro) |
-| --- |
-| ![Storage Trend, a MacGroom Pro feature, tracking day-over-day free space change](assets/screenshots/storage-trend-pro.png) |
-
-Every screenshot above is a real capture from the app running today, not a mockup.
+Every screenshot above is a real capture from the app running today, not a mockup. Storage Trend (Pro) isn't pictured yet — it needs a few days of real data before a screenshot is worth showing.
 
 ## Categories, in detail
 
