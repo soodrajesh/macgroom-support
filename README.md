@@ -139,6 +139,10 @@ Not currently — MacGroom itself is closed-source. This repo is for issues, rel
 
 MacGroom checks for updates automatically at launch, and on demand from Settings — it compares against a small hosted manifest and, if a newer version exists, shows what's new with a link to get it. Nothing installs silently: you always choose when to update. Release notes for each version are announced here under [Releases](../../releases).
 
+### I already own MacGroom Pro — how do I actually download a new version?
+
+The in-app update prompt (and each [release](../../releases)) links to the release notes so you know what changed, but the file itself lives in your Lemon Squeezy account, not here — log in at **[gogenops.lemonsqueezy.com/billing](https://gogenops.lemonsqueezy.com/billing)** with the email you purchased with. Every version you've ever had access to stays there permanently, so you can also go back to an older one at any time — nothing is ever removed when a new version ships.
+
 ### What if a tool I use (Homebrew, Docker, a package manager) isn't installed?
 
 Its subsection just doesn't appear. Every Dev Tool Caches subsection is optional and auto-detected.
