@@ -137,7 +137,7 @@ Not currently — MacGroom itself is closed-source. This repo is for issues, rel
 
 ### How will updates work?
 
-In-app update checking is planned but not live yet — MacGroom is still in final testing pre-launch. Once it ships, new versions and their release notes will be published under [Releases](../../releases), and every past version stays available there.
+MacGroom checks for updates automatically at launch, and on demand from Settings — it compares against a small hosted manifest and, if a newer version exists, shows what's new with a link to get it. Nothing installs silently: you always choose when to update. Release notes for each version are announced here under [Releases](../../releases).
 
 ### What if a tool I use (Homebrew, Docker, a package manager) isn't installed?
 
