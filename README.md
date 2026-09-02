@@ -156,7 +156,7 @@ MacGroom is the first app out of a small suite of native, dependency-free Mac ut
 | **MacGroom** | Disk cleanup — caches, dev clutter, forgotten downloads, orphaned app leftovers | closed-source, see above |
 | **DupeFinder** | Duplicate-file finder — content-based (SHA-256), Quick Look thumbnails, file-type filters, Trash-only deletion | [soodrajesh/mac-dupes](https://github.com/soodrajesh/mac-dupes) |
 | **Toolbox** | PDF & image toolkit — compress/merge/split PDFs, image compress+convert, OCR | [soodrajesh/mac-toolkit](https://github.com/soodrajesh/mac-toolkit) |
-| **MacTools** | Menu bar CPU/memory monitor + clipboard history + Calculator/Calendar widget, combined | [soodrajesh/mac-tools](https://github.com/soodrajesh/mac-tools) |
+| **MacTools** | Menu bar CPU/memory monitor + clipboard history + Calculator/Calendar widget + scratch notepad, combined | [soodrajesh/mac-tools](https://github.com/soodrajesh/mac-tools) |
 | **SnapText** | Screenshot-to-text menu bar app — on-device Vision OCR, region capture, straight to clipboard | [soodrajesh/mac-ocr](https://github.com/soodrajesh/mac-ocr) |
 
 None of these have a public landing page or a pricing tier yet — MacGroom is the one furthest along, currently in testing ahead of public launch.
