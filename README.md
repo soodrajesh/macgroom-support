@@ -12,6 +12,7 @@ This repo doesn't contain MacGroom's app source (see [Is MacGroom's source code 
 
 ## Contents
 
+- [Download](#download)
 - [What MacGroom does](#what-macgroom-does)
 - [Screenshots](#screenshots)
 - [Categories, in detail](#categories-in-detail)
@@ -27,6 +28,16 @@ This repo doesn't contain MacGroom's app source (see [Is MacGroom's source code 
 - [Releases & changelog](#releases--changelog)
 
 ---
+
+## Download
+
+**[Download MacGroom →](https://github.com/soodrajesh/macgroom-support/releases/latest/download/MacGroom.dmg)** (that link always serves the newest release; see [all releases](../../releases) for notes and older versions.)
+
+Open the DMG, drag MacGroom to Applications, and launch it. No account, no installer, no license key — the free tier is the full app, not a trial.
+
+- **macOS 13 or later**, universal — runs natively on Apple Silicon and Intel.
+- **Signed with a Developer ID and notarized by Apple**, so it opens normally: no Gatekeeper warning, no right-click-to-open workaround.
+- On first run macOS will prompt for **Full Disk Access** (see [Permissions](#permissions)) — grant it, then relaunch MacGroom.
 
 ## What MacGroom does
 
@@ -76,13 +87,13 @@ MacGroom asks macOS for **Full Disk Access** — the same permission Finder itse
 
 ## Free vs. MacGroom Pro
 
-Caches, Dev Tool Caches, Browser Caches, Downloads, Trash, and App Cleaner are free forever, on any Mac — no trial timer. **MacGroom Pro** is a one-time $24 purchase (introductory price, pre-launch) that unlocks three additional features:
+Caches, Dev Tool Caches, Browser Caches, Downloads, Trash, and App Cleaner are free forever, on any Mac — no trial timer. **MacGroom Pro** is a one-time $24 purchase (introductory price) that unlocks three additional features. **It isn't on sale yet** — the free tier above is available today, and Pro unlocks in the same app with a license key once the checkout opens:
 
 1. **Deep Scan** — large forgotten files and folders
 2. **Dev Project Artifacts** — regenerable build output across every project
 3. **Storage Trend** — day-over-day free space tracking
 
-One license unlocks Pro on every Mac you use, with free updates for as long as the app is maintained — not a subscription.
+One license unlocks Pro on up to 5 Macs, with free updates for as long as the app is maintained — not a subscription.
 
 ## Companion CLI
 
@@ -139,9 +150,11 @@ Not currently — MacGroom itself is closed-source. This repo is for issues, rel
 
 MacGroom checks for updates automatically at launch, and on demand from Settings — it compares against a small hosted manifest and, if a newer version exists, shows what's new with a link to get it. Nothing installs silently: you always choose when to update. Release notes for each version are announced here under [Releases](../../releases).
 
-### I already own MacGroom Pro — how do I actually download a new version?
+### How do I actually download a new version?
 
-The in-app update prompt (and each [release](../../releases)) links to the release notes so you know what changed, but the file itself lives in your Lemon Squeezy account, not here — log in at **[gogenops.lemonsqueezy.com/billing](https://gogenops.lemonsqueezy.com/billing)** with the email you purchased with. Every version you've ever had access to stays there permanently, so you can also go back to an older one at any time — nothing is ever removed when a new version ships.
+Every version is attached directly to its [release](../../releases) here, and the in-app update prompt links straight to it. **[This link](https://github.com/soodrajesh/macgroom-support/releases/latest/download/MacGroom.dmg)** always serves the newest one.
+
+Older releases keep their downloads permanently, so you can go back to a previous version at any time — nothing is removed when a new one ships. Entering a Pro license key doesn't change which build you run: free and Pro are the same app.
 
 ### What if a tool I use (Homebrew, Docker, a package manager) isn't installed?
 
@@ -159,7 +172,7 @@ MacGroom is the first app out of a small suite of native, dependency-free Mac ut
 | **MacTools** | Menu bar CPU/memory monitor + clipboard history + Calculator/Calendar widget + scratch notepad, combined | [soodrajesh/mac-tools](https://github.com/soodrajesh/mac-tools) |
 | **SnapText** | Screenshot-to-text menu bar app — on-device Vision OCR, region capture, straight to clipboard | [soodrajesh/mac-ocr](https://github.com/soodrajesh/mac-ocr) |
 
-None of these have a public landing page or a pricing tier yet — MacGroom is the one furthest along, currently in testing ahead of public launch.
+None of these have a public landing page or a pricing tier yet — MacGroom is the one furthest along: its free tier is publicly available now, with MacGroom Pro to follow.
 
 ## Reporting bugs & requesting features
 
