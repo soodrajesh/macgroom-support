@@ -100,7 +100,7 @@ One license unlocks Pro on up to 5 Macs, with free updates for as long as the ap
 [**macgroom** (soodrajesh/macgroom-cli)](https://github.com/soodrajesh/macgroom-cli) is a free, **open-source** terminal companion — Dev Tool Caches and Dev Project Artifacts (the two categories above), scriptable, no GUI needed:
 
 ```bash
-brew install soodrajesh/macgroom/macgroom
+brew install soodrajesh/tap/macgroom
 macgroom scan            # list everything found, nothing touched
 macgroom clean            # interactive review, y/n/a/q
 macgroom clean --yes      # trash every safe item, no prompt
