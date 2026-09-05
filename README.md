@@ -5,7 +5,7 @@ Public issue tracker, changelog, and technical documentation for **[MacGroom](ht
 This repo doesn't contain MacGroom's app source (see [Is MacGroom's source code open?](#is-macgrooms-source-code-open)) — it exists so bugs, feature requests, and technical questions have a real, versioned place to live instead of getting lost in email. The suite's other apps *are* open source; see [The rest of the suite](#the-rest-of-the-suite) below.
 
 - **Website:** <https://gogenops.com/mac-apps/macgroom/>
-- **Report a bug or request a feature:** [open an issue](../../issues/new/choose)
+- **Report a bug or request a feature:** [open an issue](https://github.com/soodrajesh/macgroom-support/issues/new/choose)
 - **Contact:** the [contact form](https://gogenops.com/mac-apps/macgroom/#contact-form) on the site above
 
 ---
@@ -31,7 +31,7 @@ This repo doesn't contain MacGroom's app source (see [Is MacGroom's source code 
 
 ## Download
 
-**[Download MacGroom →](https://github.com/soodrajesh/macgroom-support/releases/latest/download/MacGroom.dmg)** (that link always serves the newest release; see [all releases](../../releases) for notes and older versions.)
+**[Download MacGroom →](https://github.com/soodrajesh/macgroom-support/releases/latest/download/MacGroom.dmg)** (that link always serves the newest release; see [all releases](https://github.com/soodrajesh/macgroom-support/releases) for notes and older versions.)
 
 Open the DMG, drag MacGroom to Applications, and launch it. No account, no installer, no license key — the free tier is the full app, not a trial.
 
@@ -87,20 +87,20 @@ MacGroom asks macOS for **Full Disk Access** — the same permission Finder itse
 
 ## Free vs. MacGroom Pro
 
-Caches, Dev Tool Caches, Browser Caches, Downloads, Trash, and App Cleaner are free forever, on any Mac — no trial timer. **MacGroom Pro** is a one-time $24 purchase (introductory price) that unlocks three additional features. **It isn't on sale yet** — the free tier above is available today, and Pro unlocks in the same app with a license key once the checkout opens:
+Caches, Dev Tool Caches, Browser Caches, Downloads, Trash, and App Cleaner are free forever, on any Mac — no trial timer. **[MacGroom Pro](https://buy.polar.sh/polar_cl_6Rnw5y1fqiji08DWaY0rde1ukXkKHdzthKEHb47WyNW)** is a one-time $24 purchase (introductory price) that unlocks three additional features:
 
 1. **Deep Scan** — large forgotten files and folders
 2. **Dev Project Artifacts** — regenerable build output across every project
 3. **Storage Trend** — day-over-day free space tracking
 
-One license unlocks Pro on up to 5 Macs, with free updates for as long as the app is maintained — not a subscription.
+One license unlocks Pro on any number of Macs, with free updates for as long as the app is maintained — not a subscription.
 
 ## Companion CLI
 
 [**macgroom** (soodrajesh/macgroom-cli)](https://github.com/soodrajesh/macgroom-cli) is a free, **open-source** terminal companion — Dev Tool Caches and Dev Project Artifacts (the two categories above), scriptable, no GUI needed:
 
 ```bash
-brew install soodrajesh/macgroom/macgroom
+brew install soodrajesh/tap/macgroom
 macgroom scan            # list everything found, nothing touched
 macgroom clean            # interactive review, y/n/a/q
 macgroom clean --yes      # trash every safe item, no prompt
@@ -148,11 +148,11 @@ Not currently — MacGroom itself is closed-source. This repo is for issues, rel
 
 ### How will updates work?
 
-MacGroom checks for updates automatically at launch, and on demand from Settings — it compares against a small hosted manifest and, if a newer version exists, shows what's new with a link to get it. Nothing installs silently: you always choose when to update. Release notes for each version are announced here under [Releases](../../releases).
+MacGroom checks for updates automatically at launch, and on demand from Settings — it compares against a small hosted manifest and, if a newer version exists, shows what's new with a link to get it. Nothing installs silently: you always choose when to update. Release notes for each version are announced here under [Releases](https://github.com/soodrajesh/macgroom-support/releases).
 
 ### How do I actually download a new version?
 
-Every version is attached directly to its [release](../../releases) here, and the in-app update prompt links straight to it. **[This link](https://github.com/soodrajesh/macgroom-support/releases/latest/download/MacGroom.dmg)** always serves the newest one.
+Every version is attached directly to its [release](https://github.com/soodrajesh/macgroom-support/releases) here, and the in-app update prompt links straight to it. **[This link](https://github.com/soodrajesh/macgroom-support/releases/latest/download/MacGroom.dmg)** always serves the newest one.
 
 Older releases keep their downloads permanently, so you can go back to a previous version at any time — nothing is removed when a new one ships. Entering a Pro license key doesn't change which build you run: free and Pro are the same app.
 
@@ -176,7 +176,7 @@ None of these have a public landing page or a pricing tier yet — MacGroom is t
 
 ## Reporting bugs & requesting features
 
-[Open an issue](../../issues/new/choose) and pick **Bug Report** or **Feature Request** — both have a short template asking which app, macOS version, app version, and steps to reproduce. You can also use the [contact form](https://gogenops.com/mac-apps/macgroom/#contact-form) on the site.
+[Open an issue](https://github.com/soodrajesh/macgroom-support/issues/new/choose) and pick **Bug Report** or **Feature Request** — both have a short template asking which app, macOS version, app version, and steps to reproduce. You can also use the [contact form](https://gogenops.com/mac-apps/macgroom/#contact-form) on the site.
 
 ## Privacy
 
@@ -184,4 +184,4 @@ Every MacGroom app runs 100% locally. Nothing you scan, clean, or find is ever u
 
 ## Releases & changelog
 
-Each app's release notes will be published here once public updates begin — see [Releases](../../releases).
+Each app's release notes will be published here once public updates begin — see [Releases](https://github.com/soodrajesh/macgroom-support/releases).
