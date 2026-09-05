@@ -87,13 +87,13 @@ MacGroom asks macOS for **Full Disk Access** — the same permission Finder itse
 
 ## Free vs. MacGroom Pro
 
-Caches, Dev Tool Caches, Browser Caches, Downloads, Trash, and App Cleaner are free forever, on any Mac — no trial timer. **MacGroom Pro** is a one-time $24 purchase (introductory price) that unlocks three additional features. **It isn't on sale yet** — the free tier above is available today, and Pro unlocks in the same app with a license key once the checkout opens:
+Caches, Dev Tool Caches, Browser Caches, Downloads, Trash, and App Cleaner are free forever, on any Mac — no trial timer. **[MacGroom Pro](https://buy.polar.sh/polar_cl_6Rnw5y1fqiji08DWaY0rde1ukXkKHdzthKEHb47WyNW)** is a one-time $24 purchase (introductory price) that unlocks three additional features:
 
 1. **Deep Scan** — large forgotten files and folders
 2. **Dev Project Artifacts** — regenerable build output across every project
 3. **Storage Trend** — day-over-day free space tracking
 
-One license unlocks Pro on up to 5 Macs, with free updates for as long as the app is maintained — not a subscription.
+One license unlocks Pro on any number of Macs, with free updates for as long as the app is maintained — not a subscription.
 
 ## Companion CLI
 
