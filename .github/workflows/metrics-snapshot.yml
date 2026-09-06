@@ -1,0 +1,90 @@
+name: MacGroom metrics snapshot
+
+# Replaces the local com.macgroom.metrics LaunchAgent (see
+# mac-cleanup/scripts/snapshot-metrics.sh) — that job only ran while this
+# Mac was awake at exactly 10:30 local, so a release that landed after that
+# run (e.g. v1.2.4 on 2026-09-05) sat invisible on the Grafana dashboard
+# for up to 24h. This runs hourly regardless of any machine's state.
+#
+# Two-repo split, same as the local script: releases/download_count is
+# public data (works even unauthenticated), but the traffic/* endpoints
+# (views, referrers) are undocumented API that requires push access to
+# *this* repo specifically — the default GITHUB_TOKEN has that, since the
+# workflow runs here. Only the push to mac-cleanup's `metrics-data` branch
+# (a different repo) needs a separate credential — see MAC_CLEANUP_PUSH_TOKEN
+# below.
+on:
+  schedule:
+    - cron: '0 * * * *' # hourly, on the hour, UTC
+  workflow_dispatch: {} # allow a manual run from the Actions tab
+
+permissions:
+  contents: read
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout mac-cleanup's metrics-data branch
+        uses: actions/checkout@v4
+        with:
+          repository: soodrajesh/mac-cleanup
+          ref: metrics-data
+          # Fine-grained PAT scoped to mac-cleanup only, Contents:
+          # Read & Write. Create it under github.com/settings/tokens
+          # (fine-grained), then add it as a secret named
+          # MAC_CLEANUP_PUSH_TOKEN in this repo's Settings → Secrets and
+          # variables → Actions. The default GITHUB_TOKEN can't be used
+          # here — it's scoped to this repo, not mac-cleanup.
+          token: ${{ secrets.MAC_CLEANUP_PUSH_TOKEN }}
+          path: metrics-data
+
+      - name: Snapshot downloads + traffic
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: soodrajesh/macgroom-support
+        run: |
+          set -euo pipefail
+          cd metrics-data
+          TODAY=$(date -u +%Y-%m-%d)
+
+          # --- Downloads: cumulative per release asset ------------------
+          DL=downloads.csv
+          [ -f "$DL" ] || echo "date,tag,asset,downloads" > "$DL"
+          rows=$(gh api "repos/$REPO/releases" \
+            --jq '.[] | .tag_name as $t | .assets[] | "\($t),\(.name),\(.download_count)"')
+          grep -v "^$TODAY," "$DL" > "$DL.tmp" || true
+          mv "$DL.tmp" "$DL"
+          while IFS= read -r r; do [ -n "$r" ] && echo "$TODAY,$r" >> "$DL"; done <<< "$rows"
+
+          # --- Traffic: the lossy 14-day window --------------------------
+          TV=traffic-views.csv
+          [ -f "$TV" ] || echo "date,views,uniques" > "$TV"
+          gh api "repos/$REPO/traffic/views" \
+            --jq '.views[] | "\(.timestamp[0:10]),\(.count),\(.uniques)"' > .views.tmp
+          tail -n +2 "$TV" | grep -vFf <(cut -d, -f1 .views.tmp | sed 's/^/^/;s/$/,/') - 2>/dev/null \
+            > .views.keep || true
+          { echo "date,views,uniques"; cat .views.keep .views.tmp 2>/dev/null | sort -u -t, -k1,1; } > "$TV"
+          rm -f .views.tmp .views.keep
+
+          # --- Referrers: snapshot-in-time, no history from the API ------
+          RF=referrers.csv
+          [ -f "$RF" ] || echo "date,referrer,count,uniques" > "$RF"
+          grep -v "^$TODAY," "$RF" > "$RF.tmp" || true
+          mv "$RF.tmp" "$RF"
+          gh api "repos/$REPO/traffic/popular/referrers" \
+            --jq '.[] | "\(.referrer),\(.count),\(.uniques)"' \
+            | while IFS= read -r r; do [ -n "$r" ] && echo "$TODAY,$r" >> "$RF"; done
+
+      - name: Commit and push
+        run: |
+          cd metrics-data
+          git config user.name "MacGroom Metrics"
+          git config user.email "noreply@gogenops.com"
+          git add downloads.csv traffic-views.csv referrers.csv
+          if git diff --cached --quiet; then
+            echo "No metrics changes this run."
+          else
+            git commit -m "metrics: $(date -u +%Y-%m-%d) $(date -u +%H:%M) UTC"
+            git push origin HEAD:metrics-data
+          fi
