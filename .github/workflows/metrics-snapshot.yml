@@ -6,13 +6,13 @@ name: MacGroom metrics snapshot
 # run (e.g. v1.2.4 on 2026-09-05) sat invisible on the Grafana dashboard
 # for up to 24h. This runs hourly regardless of any machine's state.
 #
-# Two-repo split, same as the local script: releases/download_count is
-# public data (works even unauthenticated), but the traffic/* endpoints
-# (views, referrers) are undocumented API that requires push access to
-# *this* repo specifically — the default GITHUB_TOKEN has that, since the
-# workflow runs here. Only the push to mac-cleanup's `metrics-data` branch
-# (a different repo) needs a separate credential — see MAC_CLEANUP_PUSH_TOKEN
-# below.
+# The traffic/* endpoints (views, referrers) are undocumented API that
+# GitHub restricts to real user credentials — the Actions-issued
+# GITHUB_TOKEN gets a 403 there even with `permissions: contents: write`
+# on this repo (confirmed live 2026-09-06, run 34025058986). So this uses
+# MAC_CLEANUP_PUSH_TOKEN (a full-scope personal token, originally added
+# only to push cross-repo to mac-cleanup's `metrics-data` branch) for the
+# gh api calls too, instead of splitting across two tokens.
 on:
   schedule:
     - cron: '0 * * * *' # hourly, on the hour, UTC
@@ -41,7 +41,7 @@ jobs:
 
       - name: Snapshot downloads + traffic
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.MAC_CLEANUP_PUSH_TOKEN }}
           REPO: soodrajesh/macgroom-support
         run: |
           set -euo pipefail
